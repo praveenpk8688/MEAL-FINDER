@@ -1,0 +1,146 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: rgba(223, 224, 225, 0.762);
+}
+ .navbar{
+  background-color: orange;
+  box-shadow: 4px 3px 8px;
+  height: 50px;
+ }
+ .container-fluid{
+  margin-left: 40px;
+  margin-right: 40px;
+ }
+ .navbar-toggler{
+  border: none;
+ }
+ .nav-item{
+  border-bottom: 1px rgba(128, 128, 128, 0.202) solid;
+ }
+.centered {
+    position: absolute;
+    top: 19%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+  }
+ .form-text{
+    position:relative;
+    top: -160px;
+    text-align: center;
+    color: aliceblue;
+ }
+ .cate-main{
+  border-bottom: 3px solid orange;
+  margin-left: 50px;
+  width: 97px;
+  position: relative;
+  top: -40px;
+  left: 50px;
+ }
+  figure{
+    margin-top: 55px;
+    background-image: url(./spice-wooden-spoons-large.jpg);
+    background-repeat: no-repeat;
+    background-size:193rem;
+    height: 20rem;
+    background-position-x: -270px;
+    background-position-y: -600px;
+    filter: blur(3px);
+  }
+  .card-body-overlay{
+    width: 90px;
+    display: flex;
+    position: relative;
+    left: 130px;
+  }
+  .card-text{
+    width:100%;
+    background-color:orange;
+    margin-top:10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: .3s;
+    box-shadow: 1px 2px 8px;
+  }
+.col{
+  width: 250px;
+  margin: 40px;
+  margin-left: 100px;
+  /* overflow: hidden; */
+
+}
+.card{
+  box-shadow: 1px 5px 50px;
+  border-radius: 15px;
+
+}
+.icon1{
+  color: rgb(255, 0, 0);
+}
+.card-img{
+    width: 230px;
+    padding-bottom: 10px;
+    transition: .3s;  
+}
+.card-img:hover{
+ scale: 0.9;
+}
+.card-text:hover{
+ scale: 0.9;
+}
+.btn:hover{
+  background-color:orange;
+}
+.fa-solid{
+  width: 25px;
+}
+.btn{
+  border-radius: 100%;
+  padding: 7px;
+  margin-left: 10px;
+  box-shadow: 2px 5px 15px black;
+}
+.btn-close{
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  background-color: orange;
+}
+.form-control{
+  border-radius: 20px;
+  box-shadow: 5px 8px 20px black;
+  
+}
+.form-control::placeholder {
+  color: rgba(97, 97, 97, 0.55);
+}
+.info-recipes{
+  position: relative;
+  top: -50px;
+  margin: 20px;
+  border: 2px solid orange;
+  background-color: rgb(219, 219, 219);
+  display: none;
+}
+.info-heading{
+color: orange;
+font-weight: 600;
+font-size:x-large;
+margin-left: 10px;
+}
+.info-para{
+  margin-left: 40px;
+
+}
+
+.info-para{
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+ 
+}
+
