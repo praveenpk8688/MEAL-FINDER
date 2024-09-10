@@ -6,17 +6,33 @@
 body{
   background-color: rgba(223, 224, 225, 0.762);
 }
+.logo-main{
+position: relative;
+top: -15px;
+left: 80px;
+}
+.logo-pan{
+  width: 70px;
+  position: relative;
+  top: -17px;
+  left: -340px;
+}
  .navbar{
   background-color: orange;
   box-shadow: 4px 3px 8px;
-  height: 50px;
+  height: 49px;
+  width: 100%;
+  padding: 1px;
  }
  .container-fluid{
   margin-left: 40px;
   margin-right: 40px;
+  
  }
  .navbar-toggler{
-  border: none;
+  border:none;
+  margin-bottom: 20px;
+  
  }
  .nav-item{
   border-bottom: 1px rgba(128, 128, 128, 0.202) solid;
@@ -31,7 +47,15 @@ body{
     position:relative;
     top: -160px;
     text-align: center;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+ }
+ .form-text p{
+  color: orange;
+  font-size: x-large;
  }
  .cate-main{
   border-bottom: 3px solid orange;
@@ -90,12 +114,21 @@ body{
 }
 .card-img:hover{
  scale: 0.9;
+ cursor: pointer;
 }
 .card-text:hover{
  scale: 0.9;
 }
 .btn:hover{
   background-color:orange;
+}
+.navbar-brand:hover{
+  color: aqua;
+  cursor: pointer;
+  scale: 1.1;
+  transition: .3s;
+
+
 }
 .fa-solid{
   width: 25px;
@@ -143,4 +176,81 @@ margin-left: 10px;
   font-style: italic;
  
 }
+.navbar-brand{
+  font-family: "Bruno Ace SC", sans-serif;
+  font-weight:bolder;
+  font-size:24px;
+  /* margin-left: 80px; */
+  color: aliceblue;
+  padding-bottom: 18px;
+  position: relative;
+  left: -390px;
+}
+.container-cate{
+  display: none;
+}
+.card-text1{
+  /* padding-left: 20px; */
+  /* padding-bottom: 50px; */
+  margin-top: 168px;
+  
+  font-family: "Montserrat", sans-serif;
+}
+.cate-main1{
+  border-bottom: 3px solid orange;
+  margin-left: 40px;
+  width: 65px;
+  position: relative;
+  top: -90px;
+  left: 50px; 
+ }
+ /* .card1{
+  box-shadow: 1px 1px 50px;
+  border-radius: 15px;
+  width: 240px;
+  height: 250px;
 
+
+} */
+.card-img1{
+  width: 280px;
+  height: 200px;
+  border-radius: 18px;
+  
+  /* padding-bottom:0px; */
+  transition: .3s;  
+}
+.card-title1{
+  border: 1px solid;
+  text-align: center;
+  width: 100px;
+  border-radius: 7px;
+  background-color: orange;
+  color: aliceblue;
+  font-family:  "Montserrat", sans-serif;
+  position: relative;
+  top: -10px;
+  left: 160px;
+}
+.text-bg-light{
+  box-shadow: 1px 5px 50px;
+  border-radius: 15px;
+  width: 210px;
+  height: 240px;
+  
+}
+.col1{
+  width: 250px;
+  margin: 40px;
+  margin-left: 80px;
+  position: relative;
+  top: -60px;
+  /* display: none; */
+
+}
+.meal-section{
+  display: none;
+}
+.btn-close{
+  border:0px solid;
+}
