@@ -33,3 +33,341 @@
 //       mealResults.innerHTML = '<p>An error occurred.</p>';
 //     });
 // });
+
+
+
+
+
+const mealList = document.getElementById('meals1');
+// const mealDetailsContent = document.querySelector('.meal-section');
+const mealDetailsContent = document.querySelector('.text-bg-light');
+const mealDetails11 = document.querySelector('.row');
+const mealinfoo = document.querySelector('.meal-info-navbar');
+// const recipeCloseBtn = document.getElementById('recipe-close-btn');
+
+
+const searchbtn=document.getElementById("btn-search");
+
+searchbtn.addEventListener("click",submit);
+
+
+function submit(){
+   let searchBox=document.getElementById("input-search").value;
+   fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchBox}`)
+    .then(response=>response.json())
+    .then(data=>{
+        let html = "";
+        if(data.meals){
+            data.meals.forEach(meals1 =>{
+                html +=`
+                    <div class="col1" id="col1">
+                        <div class="card text-bg-light"  data-id="${meals1.idMeal}" style="width: 17.5rem;">
+                            <img src="${meals1.strMealThumb}" id="meal-imgs" class="card-img1" alt="...">
+                            <div class="card-img-overlay">
+                                <h6 class="card-title1">${meals1.strCategory}</h6>
+                                <p class="card-text1">${meals1.strMeal}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+            mealList.classList.remove("not-found");
+        }else{
+            html = "Sorry,No meals found !";
+            mealList.classList.add("not-found");
+        }
+        
+        mealList.innerHTML=html;
+
+    });
+
+}
+
+// -------------------------meal details------------
+mealList.addEventListener("click",getMealRecipe);
+
+
+function getMealRecipe(e){
+    e.preventDefault();
+    // console.log(e.target.parentElement.parentElement); 
+    if(e.target.parentElement.parentElement){
+        let mealItem=e.target.parentElement;
+        // console.log(mealItem);
+        
+        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
+        .then(response=>response.json())
+        .then(data=> mealinfo(data.meals));
+    }
+}
+
+
+
+function mealinfo(meal){
+    // console.log(meal);
+    meal = meal[0];
+
+   function createNumberedSteps(text) {
+        // Split the text into paragraphs
+        const paragraphs = text.split('\n\n');
+      
+        // Add numbers to the beginning of each paragraph
+        const numberedSteps = paragraphs.map((paragraph, index) => {
+          return `${index + 1}. ${paragraph}`;
+        });
+      
+        // Join the numbered steps back into a single string
+        const numberedText = numberedSteps.join('\n\n');
+      
+        return numberedText;
+      }
+      
+      // Example usage:
+      const originalText = `${meal.strInstructions}`;
+      const numberedText = createNumberedSteps(originalText);
+
+      console.log(numberedText);
+      
+    let html = `
+    <i class="fa-solid fa-angles-right">${meal.strMeal}<p class="meal-name"></p></i>
+     <div class="meal-info"><br>
+      <h2 class="cate-main2">MEALS DETAILS</h2><br>
+      <div class="meal-details">
+        <div class="container">
+          <div class="row">
+            <div class="col-1">
+              <img class="meal-info-img" src="${meal.strMealThumb}" alt="">
+            </div>
+            <div class="col-2">
+              <h3 class="meal-info-name">${meal.strMeal}</h3>
+              <span class="meal-info-category-name">Category:<p class="meal-info-category-name1">${meal.strCategory}</p></span><br>
+              <span class="meal-info-category-source">Source:<p class="meal-info-category-sourceurl">${meal.strSource}</p></span><br><br>
+              <span class="meal-info-category-tags">Tags: <p class="meal-info-category-tags1">${meal.strTags}</p>
+              </span>
+              
+                <div class="ingredient-container">
+                  <h3 class="ingredient-heading">> Ingredients <</h3>
+                  <div class="row">
+                    <div class="col">
+                      <div class="ing-col">
+                       <span class="ing-num">1</span>
+                       <p class="ing-info">${meal.strIngredient1}</p>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="ing-col">
+                       <span class="ing-num">2</span>
+                       <p class="ing-info">${meal.strIngredient2}</p>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="ing-col">
+                       <span class="ing-num">3</span>
+                       <p class="ing-info">${meal.strIngredient3}</p>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="ing-col">
+                       <span class="ing-num">4</span>
+                       <p class="ing-info">${meal.strIngredient4}</p>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="ing-col">
+                       <span class="ing-num">5</span>
+                       <p class="ing-info">${meal.strIngredient5}</p>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="ing-col">
+                       <span class="ing-num">6</span>
+                       <p class="ing-info">${meal.strIngredient6}</p>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="ing-col">
+                       <span class="ing-num">7</span>
+                       <p class="ing-info">${meal.strIngredient7}</p>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="ing-col">
+                       <span class="ing-num">8</span>
+                       <p class="ing-info">${meal.strIngredient8}</p>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="ing-col">
+                       <span class="ing-num">9</span>
+                       <p class="ing-info">${meal.strIngredient9}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div><br><br><br>
+            <div class="measure">
+              <h3 class="ingredient-heading2">> Measurements <</h3>
+                <div class="row">
+                  <div class="col">
+                    <div class="ing-col">
+                     <span class="ing-spoon"><i class="fa-solid fa-spoon fa-lg"></i></span>
+                     <p class="ing-measure">${meal.strMeasure1}</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="ing-col">
+                     <span class="ing-spoon"><i class="fa-solid fa-spoon fa-lg"></i></span>
+                     <p class="ing-measure">${meal.strMeasure2}</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="ing-col">
+                     <span class="ing-spoon"><i class="fa-solid fa-spoon fa-lg"></i></span>
+                     <p class="ing-measure">${meal.strMeasure3}</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="ing-col">
+                     <span class="ing-spoon"><i class="fa-solid fa-spoon fa-lg"></i></span>
+                     <p class="ing-measure">${meal.strMeasure4}</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="ing-col">
+                     <span class="ing-spoon"><i class="fa-solid fa-spoon fa-lg"></i></span>
+                     <p class="ing-measure">${meal.strMeasure5}</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="ing-col">
+                     <span class="ing-spoon"><i class="fa-solid fa-spoon fa-lg"></i></span>
+                     <p class="ing-measure">${meal.strMeasure6}</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="ing-col">
+                     <span class="ing-spoon"><i class="fa-solid fa-spoon fa-lg"></i></span>
+                     <p class="ing-measure">${meal.strMeasure7}</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="ing-col">
+                     <span class="ing-spoon"><i class="fa-solid fa-spoon fa-lg"></i></span>
+                     <p class="ing-measure">${meal.strMeasure8}</p>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="ing-col">
+                     <span class="ing-spoon"><i class="fa-solid fa-spoon fa-lg"></i></span>
+                     <p class="ing-measure">${meal.strMeasure9}</p>
+                    </div>
+                  </div><div class="col">
+                    <div class="ing-col">
+                     <span class="ing-spoon"><i class="fa-solid fa-spoon fa-lg"></i></span>
+                     <p class="ing-measure">${meal.strMeasure10}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class="instructions">
+                <h3 class="ingredient-heading3">Instructions :</h3>
+                <p>${numberedText}</p>
+              </div>
+          </div>
+        </div>
+      </div>
+     </div>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     `;
+     mealinfoo.innerHTML=html;
+    
+    
+// let numb=1;
+
+
+//   console.log(numberedText);
+
+
+
+// function numb(){
+//     for(let i=1;i<=6;i++){
+//         if(meal[`strIngredient${i}`]){
+// }
+// }
+
+// }return numb();
+
+// let items="";
+// const ing= ${meal.strIngredient[i]}
+
+
+}
+
+
+
+// recipeCloseBtn.addEventListener('click', () => {
+//   mealDetailsContent.parentElement.removeChild(mealDetailsContent);
+// });
+
+// if(){
+//   let contaicate =  document.querySelector('.container-cate');
+//     contaicate.style.display="none";
+// }
+
+
+const cate = document.querySelector('.container-cate');
+cate.addEventListener("click",getMealCategory);
+function getMealCategory(){
+    fetch( `https://www.themealdb.com/api/json/v1/1/categories.php`)
+    .then(response=>response.json())
+    .then(data=>{
+        let html = "";
+        if(data.categories){
+            data.categories.forEach(cate =>{
+                html +=`
+                <h2 class="cate-main">CATEGORIES</h2>
+                <div class="row row-cols-1 row-cols-md-5 g-4">
+                    <div class="col">
+                    <div class="card">
+                 <div class="card-body-overlay">
+                 <p class="card-text">${cate.strCategory}</p>
+                </div>
+                <img src="${cate.strCategoryThumb}" class="card-img" alt="...">
+                </div>
+                </div>
+                </div>
+                `
+                
+    })
+}
+
+    }
+    );
+}
+
+
+
+
+
+// mealList.addEventListener("click",getMealRecipe);
+
+
+// function getMealCategory(e){
+    // e.preventDefault();
+//     // console.log(e.target.parentElement.parentElement); 
+//     if(e.target.parentElement.parentElement){
+//         let mealItem=e.target.parentElement;
+//         // console.log(mealItem);
+        
+//         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
+//         .then(response=>response.json())
+//         .then(data=> mealinfo(data.meals));
+//     }
+// }

@@ -5,6 +5,7 @@
 }
 body{
   background-color: rgba(223, 224, 225, 0.762);
+  overflow-x: hidden;
 }
 .logo-main{
 position: relative;
@@ -21,7 +22,7 @@ left: 80px;
   background-color: orange;
   box-shadow: 4px 3px 8px;
   height: 49px;
-  width: 100%;
+  width: 120rem;
   padding: 1px;
  }
  .container-fluid{
@@ -35,13 +36,22 @@ left: 80px;
   
  }
  .nav-item{
-  border-bottom: 1px rgba(128, 128, 128, 0.202) solid;
+  border-bottom: 2px orange solid;
+  width: 40px;
+  transition: width 1s;
+ }
+ .nav-item:hover{
+  border-bottom: 2px orange solid;
+  transition-timing-function: ease;
+  width: 22rem;
+  font-weight: 700;
  }
 .centered {
     position: absolute;
-    top: 19%;
-    left: 51%;
+    top: 10rem;
+    left: 61rem;
     transform: translate(-50%, -50%);
+    
   }
  .form-text{
     position:relative;
@@ -52,10 +62,12 @@ left: 80px;
     font-size: 20px;
     font-weight: 500;
     font-style: italic;
+    width: 120rem;
  }
  .form-text p{
   color: orange;
   font-size: x-large;
+  width: 120rem;
  }
  .cate-main{
   border-bottom: 3px solid orange;
@@ -70,10 +82,11 @@ left: 80px;
     background-image: url(./spice-wooden-spoons-large.jpg);
     background-repeat: no-repeat;
     background-size:193rem;
-    height: 20rem;
-    background-position-x: -270px;
-    background-position-y: -600px;
+    height: 21rem;
+    background-position-x: -280px;
+    background-position-y: -650px;
     filter: blur(3px);
+    width: 120rem;
   }
   .card-body-overlay{
     width: 90px;
@@ -112,9 +125,23 @@ left: 80px;
     padding-bottom: 10px;
     transition: .3s;  
 }
+.not-found{
+  color: orange;
+  font-size: 70px;
+  font-weight:500;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  position: relative;
+  top: -90px;
+}
 .card-img:hover{
  scale: 0.9;
  cursor: pointer;
+}
+.text-bg-light:hover{
+  scale: 1.1;
+  transition: ease-in;
+  cursor: pointer;
 }
 .card-text:hover{
  scale: 0.9;
@@ -127,8 +154,6 @@ left: 80px;
   cursor: pointer;
   scale: 1.1;
   transition: .3s;
-
-
 }
 .fa-solid{
   width: 25px;
@@ -186,20 +211,19 @@ margin-left: 10px;
   position: relative;
   left: -390px;
 }
-.container-cate{
-  display: none;
-}
+
 .card-text1{
   /* padding-left: 20px; */
   /* padding-bottom: 50px; */
   margin-top: 168px;
+  /* margin-bottom: 90px; */
   
   font-family: "Montserrat", sans-serif;
 }
 .cate-main1{
   border-bottom: 3px solid orange;
   margin-left: 40px;
-  width: 65px;
+  width: 69px;
   position: relative;
   top: -90px;
   left: 50px; 
@@ -236,7 +260,9 @@ margin-left: 10px;
   box-shadow: 1px 5px 50px;
   border-radius: 15px;
   width: 210px;
-  height: 240px;
+  height: 250px;
+  font-size: small;
+  font-weight: 500;
   
 }
 .col1{
@@ -245,12 +271,160 @@ margin-left: 10px;
   margin-left: 80px;
   position: relative;
   top: -60px;
+  display: inline-grid;
   /* display: none; */
 
 }
+.meal-info-navbar{
+  border: 2px solid orange;
+  background-color: orange;
+  height: 33px;
+  position: relative;
+  top: -130px;
+  width: 105rem;
+  margin-left: 110px;
+  border-radius: 5px;
+  
+  /* display: none; */
+}
+.meal-info-nav-img{
+  width: 24px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+.fa-angles-right{
+  position: relative;
+  top: 10px;
+  left: 10px;
+
+}
+.meal-name{
+  position: relative;
+  top: -16px;
+  left: 30px;
+  font-family:"Montserrat", sans-serif;
+  font-weight: 500;
+}
+.cate-main2{
+  border-bottom: 3px solid orange;
+  width: 229px;
+}
+.meal-details{
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 5px 30px;
+
+}
+.col-1{
+  position: relative;
+  left: -160px;
+  margin-top: 30px;
+}
+.col-2{
+  position: relative;
+  right: -200px;
+  margin-left: 290px;
+  margin-top: 30px;
+  width: 54rem;
+  /* font-size: larger; */
+}
+.meal-info-img{
+  border-radius: 5px;
+  box-shadow: 1px 5px 50px;
+}
+.meal-info-name{
+  color: orange;
+  font-family: "Kanit", sans-serif;
+  font-size: 35px;
+  font-weight: 400;
+  font-style: normal;
+  border-bottom: 2px solid;
+  width: 53rem;
+  padding-bottom: 15px;
+}
+.meal-info-category-name,.meal-info-category-source,.meal-info-category-tags {
+  font-family: "Kanit", sans-serif;
+  /* display: inline; */
+  font-size: 24px;
+  
+}
+.meal-info-category-name1,.meal-info-category-sourceurl{
+  font-family:"Montserrat", sans-serif;
+  display: inline-block;
+  font-size: 16px;
+  font-weight:500;
+}
+.meal-info-category-tags1{
+  color: orange;
+  border: 2px solid;
+  width: 200px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 9px;
+  font-family:"Montserrat", sans-serif; 
+  font-weight: 400;
+  font-size: 20px;
+}
+.ingredient-container{
+  border: 1px solid orange;
+  background-color: orange;
+  margin-left: 60px;
+  color: aliceblue;
+  font-family:"Montserrat", sans-serif;
+  font-weight: 600;
+  border-radius: 9px;
+  
+  
+  
+  
+}
+.ingredient-heading{
+  border-bottom: 3px solid;
+  text-align: center;
+}
+.ing-col{
+  display:inline-flex;
+  /* width: 90px; */
+  
+  
+}
+.ing-num{
+  width: 21px;
+  height: 21px;
+  margin-right: 10px;
+  border-radius:10px;
+  background-color:red;
+  text-align: center;
+  /* display:inline-flex; */
+  
+
+}
+.measure{
+  background-color: rgb(238, 237, 237);
+  font-family:"Montserrat", sans-serif;
+  font-weight: 600;
+  border: 2px solid rgba(90, 90, 90, 0.519);
+  border-radius: 9px;
+  width: 80rem;
+}
+.instructions{
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.ingredient-heading2{
+  border-bottom: 3px solid rgb(188, 188, 188);
+  text-align: center;
+}
 .meal-section{
-  display: none;
+  /* display: none; */
 }
 .btn-close{
-  border:0px solid;
+  border:none;
+}
+.container-cate{
+  /* display: none; */
+}
+.meal-info-navbar{
+  /* display: none; */
 }
