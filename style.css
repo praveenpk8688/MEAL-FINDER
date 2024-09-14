@@ -21,7 +21,7 @@ left: 80px;
  .navbar{
   background-color: orange;
   box-shadow: 4px 3px 8px;
-  height: 49px;
+  height: 56px;
   width: 120rem;
   padding: 1px;
  }
@@ -112,6 +112,7 @@ left: 80px;
   /* overflow: hidden; */
 
 }
+
 .card{
   box-shadow: 1px 5px 50px;
   border-radius: 15px;
@@ -160,7 +161,9 @@ left: 80px;
 }
 .btn{
   border-radius: 100%;
-  padding: 7px;
+  padding: 13px;
+  height: 55px;
+  width: 55px;
   margin-left: 10px;
   box-shadow: 2px 5px 15px black;
 }
@@ -170,8 +173,10 @@ left: 80px;
   background-color: orange;
 }
 .form-control{
-  border-radius: 20px;
+  border-radius: 60px;
   box-shadow: 5px 8px 20px black;
+  width: 260px;
+  height: 53px;
   
 }
 .form-control::placeholder {
@@ -219,6 +224,8 @@ margin-left: 10px;
   /* margin-bottom: 90px; */
   
   font-family: "Montserrat", sans-serif;
+  font-size: x-large;
+  text-align: center;
 }
 .cate-main1{
   border-bottom: 3px solid orange;
@@ -247,14 +254,20 @@ margin-left: 10px;
 .card-title1{
   border: 1px solid;
   text-align: center;
-  width: 100px;
+  width: 110px;
   border-radius: 7px;
   background-color: orange;
-  color: aliceblue;
+  color: rgb(0, 0, 0);
   font-family:  "Montserrat", sans-serif;
+  font-weight:bold;
+  font-style: italic;
+  font-size: large;
   position: relative;
   top: -10px;
-  left: 160px;
+  left: 150px;
+  box-shadow: 1px 8px 30px;
+  
+
 }
 .text-bg-light{
   box-shadow: 1px 5px 50px;
@@ -279,7 +292,7 @@ margin-left: 10px;
   border: 2px solid orange;
   background-color: orange;
   height: 33px;
-  position: relative;
+  /* position: relative; */
   top: -130px;
   width: 105rem;
   margin-left: 110px;
@@ -290,7 +303,8 @@ margin-left: 10px;
 .meal-info-nav-img{
   width: 24px;
   margin-left: 50px;
-  margin-bottom: 20px;
+  /* margin-top: 10px; */
+  margin-bottom: 60px;
 }
 .fa-angles-right{
   position: relative;
@@ -300,10 +314,11 @@ margin-left: 10px;
 }
 .meal-name{
   position: relative;
-  top: -16px;
+  top: -33px;
   left: 30px;
   font-family:"Montserrat", sans-serif;
   font-weight: 500;
+  width: 70px;
 }
 .cate-main2{
   border-bottom: 3px solid orange;
@@ -353,6 +368,7 @@ margin-left: 10px;
   display: inline-block;
   font-size: 16px;
   font-weight:500;
+  margin-left: 10px;
 }
 .meal-info-category-tags1{
   color: orange;
@@ -368,35 +384,56 @@ margin-left: 10px;
 .ingredient-container{
   border: 1px solid orange;
   background-color: orange;
-  margin-left: 60px;
   color: aliceblue;
   font-family:"Montserrat", sans-serif;
   font-weight: 600;
   border-radius: 9px;
+  width: 390px;
+  height: 360px;
+  line-height: 30px;
   
+  /* text-align:end ; */
   
   
   
 }
+.ing-list-group{
+ 
+}
+.ing-list-item{
+  list-style:disc;
+  margin-left: 40px;
+  font-size: large;
+}
+
 .ingredient-heading{
   border-bottom: 3px solid;
   text-align: center;
+  
 }
 .ing-col{
-  display:inline-flex;
+  display:grid;
+  width: 10px;
+  white-space: nowrap;
+  text-align: center;
   /* width: 90px; */
   
   
 }
-.ing-num{
+/* .ing-num{
   width: 21px;
   height: 21px;
   margin-right: 10px;
   border-radius:10px;
   background-color:red;
-  text-align: center;
-  /* display:inline-flex; */
+  text-align:center ;
+  /* display:inline-flex;
   
+
+} */
+.instructions-text{
+  white-space: pre-line;
+  line-height: 50px;
 
 }
 .measure{
@@ -408,14 +445,18 @@ margin-left: 10px;
   width: 80rem;
 }
 .instructions{
-  margin-left: 50px;
-  margin-top: 40px;
+  /* margin-left: 50px;
+  margin-top: 40px; */
+  margin: 4rem;
+
+  
 }
 
 .ingredient-heading2{
   border-bottom: 3px solid rgb(188, 188, 188);
   text-align: center;
 }
+
 .meal-section{
   /* display: none; */
 }
@@ -427,4 +468,7 @@ margin-left: 10px;
 }
 .meal-info-navbar{
   /* display: none; */
+}
+#footer{
+  display: none;
 }

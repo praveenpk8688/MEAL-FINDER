@@ -35,24 +35,122 @@
 // });
 
 
+// let cate = document.querySelector('.container-cate');
+// cate.addEventListener("click",getMealCategory);
+// function getMealCategory(){
+
+//   console.log(cate);
+  
+//     fetch( `https://www.themealdb.com/api/json/v1/1/categories.php`)
+//     .then(response=>response.json())
+//     .then(data=>{
+//         let html = "";
+//         if(data.categories){
+//             data.categories.forEach(cate =>{
+//                 html +=`
+//                 <h2 class="cate-main">CATEGORIES</h2>
+//                 <div class="row row-cols-1 row-cols-md-5 g-4">
+//                     <div class="col">
+//                     <div class="card">
+//                  <div class="card-body-overlay">
+//                  <p class="card-text">${cate.strCategory}</p>
+//                 </div>
+//                 <img src="${cate.strCategoryThumb}" class="card-img" alt="...">
+//                 </div>
+//                 </div>
+//                 </div>
+//                 `
+                
+//     });
+
+// }
+
+//     });
+//     cate.innerHTML=html;
+//   }
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
-const mealList = document.getElementById('meals1');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let mealList = document.getElementById('meals1');
 // const mealDetailsContent = document.querySelector('.meal-section');
-const mealDetailsContent = document.querySelector('.text-bg-light');
-const mealDetails11 = document.querySelector('.row');
-const mealinfoo = document.querySelector('.meal-info-navbar');
+let mealDetailsContent = document.querySelector('.text-bg-light');
+let mealDetails11 = document.querySelector('.row');
+let mealinfoo = document.querySelector('.meal-info-navbar');
+let mealInfoMain = document.querySelector('.mealInfo-main');
 // const recipeCloseBtn = document.getElementById('recipe-close-btn');
 
 
-const searchbtn=document.getElementById("btn-search");
+let searchbtn=document.getElementById("btn-search");
 
 searchbtn.addEventListener("click",submit);
 
 
 function submit(){
    let searchBox=document.getElementById("input-search").value;
+   
    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchBox}`)
     .then(response=>response.json())
     .then(data=>{
@@ -60,9 +158,10 @@ function submit(){
         if(data.meals){
             data.meals.forEach(meals1 =>{
                 html +=`
+                
                     <div class="col1" id="col1">
                         <div class="card text-bg-light"  data-id="${meals1.idMeal}" style="width: 17.5rem;">
-                            <img src="${meals1.strMealThumb}" id="meal-imgs" class="card-img1" alt="...">
+                        <img src="${meals1.strMealThumb}" id="meal-imgs" class="card-img1" alt="...">                          
                             <div class="card-img-overlay">
                                 <h6 class="card-title1">${meals1.strCategory}</h6>
                                 <p class="card-text1">${meals1.strMeal}</p>
@@ -70,17 +169,26 @@ function submit(){
                         </div>
                     </div>
                 </div>
+                </div>
+                </a>
                 `;
+                
             });
             mealList.classList.remove("not-found");
+            // mealinfoo.classList.remove("meal-info-navbar");
+
+            
+
         }else{
             html = "Sorry,No meals found !";
             mealList.classList.add("not-found");
         }
+
         
         mealList.innerHTML=html;
 
     });
+
 
 }
 
@@ -90,10 +198,13 @@ mealList.addEventListener("click",getMealRecipe);
 
 function getMealRecipe(e){
     e.preventDefault();
+
     // console.log(e.target.parentElement.parentElement); 
     if(e.target.parentElement.parentElement){
         let mealItem=e.target.parentElement;
-        // console.log(mealItem);
+        console.log(mealItem);
+            // mealinfoo.classList.remove("meal-info-navbar");
+            // mealList.classList.remove("meals1");
         
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`)
         .then(response=>response.json())
@@ -126,10 +237,12 @@ function mealinfo(meal){
       const originalText = `${meal.strInstructions}`;
       const numberedText = createNumberedSteps(originalText);
 
-      console.log(numberedText);
+      // console.log(numberedText);
       
     let html = `
-    <i class="fa-solid fa-angles-right">${meal.strMeal}<p class="meal-name"></p></i>
+    <div class="meal-info-navbar">
+     <a href="index.html"><img class="meal-info-nav-img" src="/home (1).png" alt=""></a>
+     <i class="fa-solid fa-angles-right"><p class="meal-name">${meal.strMeal}</p></i>
      <div class="meal-info"><br>
       <h2 class="cate-main2">MEALS DETAILS</h2><br>
       <div class="meal-details">
@@ -146,68 +259,32 @@ function mealinfo(meal){
               </span>
               
                 <div class="ingredient-container">
-                  <h3 class="ingredient-heading">> Ingredients <</h3>
+                  <h3 class="ingredient-heading"> Ingredients </h3>
                   <div class="row">
+                  <ul class="ing-list-group">
+                    <li class="ing-list-item">${meal.strIngredient1}</li>
+                    <li class="ing-list-item">${meal.strIngredient2}</li>
+                    <li class="ing-list-item">${meal.strIngredient3}</li>
+                    <li class="ing-list-item">${meal.strIngredient4}</li>
+                    <li class="ing-list-item">${meal.strIngredient5}</li>
+                    <li class="ing-list-item">${meal.strIngredient6}</li>
+                    <li class="ing-list-item">${meal.strIngredient7}</li>
+                    <li class="ing-list-item">${meal.strIngredient8}</li>
+                    <li class="ing-list-item">${meal.strIngredient9}</li>
+                  </ul>
+                </div>
                     <div class="col">
-                      <div class="ing-col">
-                       <span class="ing-num">1</span>
-                       <p class="ing-info">${meal.strIngredient1}</p>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="ing-col">
-                       <span class="ing-num">2</span>
-                       <p class="ing-info">${meal.strIngredient2}</p>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="ing-col">
-                       <span class="ing-num">3</span>
-                       <p class="ing-info">${meal.strIngredient3}</p>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="ing-col">
-                       <span class="ing-num">4</span>
-                       <p class="ing-info">${meal.strIngredient4}</p>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="ing-col">
-                       <span class="ing-num">5</span>
-                       <p class="ing-info">${meal.strIngredient5}</p>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="ing-col">
-                       <span class="ing-num">6</span>
-                       <p class="ing-info">${meal.strIngredient6}</p>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="ing-col">
-                       <span class="ing-num">7</span>
-                       <p class="ing-info">${meal.strIngredient7}</p>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="ing-col">
-                       <span class="ing-num">8</span>
-                       <p class="ing-info">${meal.strIngredient8}</p>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="ing-col">
-                       <span class="ing-num">9</span>
-                       <p class="ing-info">${meal.strIngredient9}</p>
-                      </div>
-                    </div>
+                    
+                    <div class="ing-list">
+    
+                      
+                  </div>
                   </div>
                 </div>
               </div>
               </div><br><br><br>
             <div class="measure">
-              <h3 class="ingredient-heading2">> Measurements <</h3>
+              <h3 class="ingredient-heading2"> Measurements </h3>
                 <div class="row">
                   <div class="col">
                     <div class="ing-col">
@@ -273,11 +350,13 @@ function mealinfo(meal){
             </div>
               <div class="instructions">
                 <h3 class="ingredient-heading3">Instructions :</h3>
-                <p>${numberedText}</p>
+                <p class="instructions-text">${numberedText}</p><br>
               </div>
           </div>
         </div>
       </div>
+     </div>
+     </div>
      </div>
      <br>
      <br>
@@ -285,10 +364,13 @@ function mealinfo(meal){
      <br>
      <br>
      <br>
+     <br>
+     <br>
+     <br>
      `;
-     mealinfoo.innerHTML=html;
+     mealInfoMain.innerHTML=html;
     
-    
+}
 // let numb=1;
 
 
@@ -308,7 +390,6 @@ function mealinfo(meal){
 // const ing= ${meal.strIngredient[i]}
 
 
-}
 
 
 
@@ -322,35 +403,6 @@ function mealinfo(meal){
 // }
 
 
-const cate = document.querySelector('.container-cate');
-cate.addEventListener("click",getMealCategory);
-function getMealCategory(){
-    fetch( `https://www.themealdb.com/api/json/v1/1/categories.php`)
-    .then(response=>response.json())
-    .then(data=>{
-        let html = "";
-        if(data.categories){
-            data.categories.forEach(cate =>{
-                html +=`
-                <h2 class="cate-main">CATEGORIES</h2>
-                <div class="row row-cols-1 row-cols-md-5 g-4">
-                    <div class="col">
-                    <div class="card">
-                 <div class="card-body-overlay">
-                 <p class="card-text">${cate.strCategory}</p>
-                </div>
-                <img src="${cate.strCategoryThumb}" class="card-img" alt="...">
-                </div>
-                </div>
-                </div>
-                `
-                
-    })
-}
-
-    }
-    );
-}
 
 
 
