@@ -1,4 +1,4 @@
-﻿# MEAL-FINDER
+﻿# 🍽️MEAL-FINDER
 MEAL-FINDER is a simple and responsive food discovery web app built with HTML, CSS, and JavaScript. It allows users to search for meals by name or category and view detailed information including ingredients and images. Powered by the MealDB API, this project is ideal for learning API integration and frontend modular design.
 
 🔧 Tech Stack
@@ -44,3 +44,4 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 📄 License
 This project is licensed under the MIT License.
+
